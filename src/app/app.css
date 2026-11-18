@@ -1,0 +1,26 @@
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #0b1329;
+  color: #f8fafc;
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 64px);
+}
+
+.main-content {
+  flex: 1;
+  background: radial-gradient(circle at 50% 0%, #111e38 0%, #0b1329 100%);
+  overflow-y: auto;
+  min-height: calc(100vh - 64px);
+}
+
+.main-content-full {
+  flex: 1;
+  background: #0b1329;
+  min-height: calc(100vh - 64px);
+}
