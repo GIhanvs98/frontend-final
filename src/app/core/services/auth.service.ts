@@ -25,12 +25,14 @@ export class AuthService {
       .pipe(
         tap(response => {
           if (response.success && response.data) {
+            const token = response.data.accessToken || response.data.token || '';
+            const id = response.data.userId || response.data.id || '';
             this.setSession({
-              id: response.data.id,
+              id: id,
               username: response.data.username,
               email: response.data.email,
               role: response.data.role,
-              token: response.data.token
+              token: token
             });
           }
         })
@@ -42,12 +44,14 @@ export class AuthService {
       .pipe(
         tap(response => {
           if (response.success && response.data) {
+            const token = response.data.accessToken || response.data.token || '';
+            const id = response.data.userId || response.data.id || '';
             this.setSession({
-              id: response.data.id,
+              id: id,
               username: response.data.username,
               email: response.data.email,
               role: response.data.role,
-              token: response.data.token
+              token: token
             });
           }
         })

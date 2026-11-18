@@ -33,15 +33,15 @@ import { AuthService } from '../../core/services/auth.service';
 
         <form (ngSubmit)="onSubmit()" class="auth-form">
           <div class="form-group">
-            <label for="username">Username</label>
+            <label for="email">Email</label>
             <input
-              id="username"
-              type="text"
-              name="username"
-              [(ngModel)]="username"
-              placeholder="Enter your username"
+              id="email"
+              type="email"
+              name="email"
+              [(ngModel)]="email"
+              placeholder="Enter your email"
               required
-              autocomplete="username"
+              autocomplete="email"
             />
           </div>
 
@@ -58,7 +58,7 @@ import { AuthService } from '../../core/services/auth.service';
             />
           </div>
 
-          <button type="submit" [disabled]="loading() || !username || !password" class="btn-submit">
+          <button type="submit" [disabled]="loading() || !email || !password" class="btn-submit">
             @if (loading()) {
               <span class="spinner"></span>
               <span>Authenticating...</span>
@@ -234,19 +234,19 @@ export class LoginComponent {
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
 
-  public username = '';
+  public email = '';
   public password = '';
   public readonly loading = signal(false);
   public readonly errorMessage = signal<string | null>(null);
 
   public onSubmit(): void {
-    if (!this.username || !this.password) return;
+    if (!this.email || !this.password) return;
 
     this.loading.set(true);
     this.errorMessage.set(null);
 
     this.authService.login({
-      username: this.username,
+      email: this.email,
       password: this.password
     }).subscribe({
       next: () => {

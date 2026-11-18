@@ -1,5 +1,5 @@
 export interface LoginRequest {
-  username: string;
+  email: string;
   password: string;
 }
 
@@ -11,11 +11,13 @@ export interface RegisterRequest {
 }
 
 export interface AuthResponseData {
-  id: string;
+  id?: string;
+  userId?: string;
   username: string;
   email: string;
   role: string;
-  token: string;
+  token?: string;
+  accessToken?: string;
   tokenType: string;
 }
 
